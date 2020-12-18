@@ -20,4 +20,4 @@ jobs:
     needs: ["check-pr-name"]
     steps:
       - name: Publishing Main
-        run: echo '${{github.event}}'
+        run: echo '${{github.event.pull_request.number}}'
