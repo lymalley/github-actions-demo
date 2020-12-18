@@ -1,0 +1,23 @@
+# This workflow is to run publish when merge to main occurs
+
+name: Merge & Publish
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches: [STUDIO-439, master]
+
+jobs:
+  check-pr-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo github.event
+  publish-uip:
+    runs-on: ubuntu-latest
+    needs: ["check-pr-name"]
+    steps:
+      - name: Publishing Main
+        run: print(${{github.event.action}})
