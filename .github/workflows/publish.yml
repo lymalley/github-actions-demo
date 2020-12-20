@@ -3,21 +3,45 @@
 name: Merge & Publish
 
 on:
+  push:
+    branches:
+      - master
+      - STUDIO-439
   pull_request:
     branches:
       - master
-  push:
-    branches: [STUDIO-439, master]
+    types:
+      - ready_for_review
+      - review_requested
+      - opened
 
 jobs:
-  check-pr-name:
+  printJob:
+    name: Print event
     runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo github.event
-  publish-uip:
-    runs-on: ubuntu-latest
-    needs: ["check-pr-name"]
-    steps:
-      - name: Publishing Main
-        run: echo JSON.stringify(github.event)
+      - name: Dump Github Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
+#   pull_request:
+#     # types: [synchronize]
+#     branches:
+#       - master
+#   push:
+#     branches: [STUDIO-439, master]
+
+# jobs:
+#   check-pr-name:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: echo a string
+#         run: echo github.event
+#   publish-uip:
+#     runs-on: ubuntu-latest
+#     needs: ["check-pr-name"]
+#     steps:
+#       - name: Publishing Main
+#         run: echo JSON.stringify(github.event)
