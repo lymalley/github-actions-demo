@@ -3,7 +3,7 @@ const github=require("@actions/github")
 
 try {
 //throw( new Error('some error message'))
-core.setOutput("mergeMessage", JSON.stringify(github))
+core.setOutput("mergeMessage", JSON.stringify(github.context.payload))
 // const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
 // const splitUp=message.split(' ')
 // if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {
