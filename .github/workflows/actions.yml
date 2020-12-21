@@ -23,8 +23,8 @@ jobs:
         # with:
         #   who-to-greet: "World"
         with:
-          # github-object: ${{ toJson(github)}}
-          github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
+          github-object: ${{ toJson(github)}}
+          # github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
       - run: |
           echo "${{ steps.merge.outputs.mergeMessage }}"
 

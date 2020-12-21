@@ -5,10 +5,14 @@ try {
 //throw( new Error('some error message'))
 // const gh=JSON.stringify(github)
 // core.setOutput("mergeMessage", gh)
-const context=JSON.stringify(github.context)
-console.log("context", context)
-const message=core.getInput("github-object")
-//const message =JSON.stringify(github.context.payload.commits[github.context.payload.commits-1], null, '\t')
+const context=JSON.stringify(github.context, null, '\t')
+const commit=context.payload.commits[context.payload.commits.length-1]
+const message=commit.message
+console.log("msg", message)
+console.log("committer", commit.committer)
+// console.log("context", context.payload.commits[context.payload.commits.length-1])
+//const message=core.getInput("github-object")
+// const message =JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1], null, '\t')
 const splitUp=message.split(' ')
 //const first=splitUp[0]
 //const message=context.event.commits[context.event.commits-1].message
@@ -22,7 +26,7 @@ core.setOutput("mergeMessage", message)
 }
 console.log("without quotes", message.split('"'))
 console.log("MESSAGE", splitUp)
-console.log(JSON.stringify(github.context.payload.commits[github.context.payload.commits-1], null, '\t'))
+console.log(message)
 } catch (error) {
 core.setFailed(error.message)
 }
