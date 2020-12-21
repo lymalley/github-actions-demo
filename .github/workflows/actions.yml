@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - STUDIO-439
+      # - STUDIO-439
   # pull_request:
   #   branches:
   #     - master
