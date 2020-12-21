@@ -1,14 +1,18 @@
-name: Hello World
-author: Lauren
+name: Ready to Publish
+# author: Lauren
 description: Some description
-inputs:
-  who-to-greet:
-    description: "Who To Greet"
-    required: true
-    default: Ali
+# inputs:
+#   who-to-greet:
+#     description: "Who To Greet"
+#     required: true
+#     default: Ali
 outputs:
   time:
     description: "The greeting time"
+  mergeMessage:
+    description: "Is a pull request merge"
+  prName:
+    description: "Is named properly"
 runs:
   using: "node12"
   main: "dist/index.js"
