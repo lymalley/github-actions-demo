@@ -16,7 +16,7 @@ on:
       - opened
 
 jobs:
-  printJob:
+  checkForMerge:
     name: Print event
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +26,7 @@ jobs:
           GITHUB_MESSAGE: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
         run: |
           echo "$GITHUB_MESSAGE"
+          GITHUB_MESSAGE.split(" ")[0] === "Merge"
 
 #   pull_request:
 #     # types: [synchronize]
