@@ -3,7 +3,7 @@ const github=require("@actions/github")
 
 try {
 //throw( new Error('some error message'))
-const gh=JSON.stringify(github, null, '\t')
+const gh=JSON.stringify(github)
 core.setOutput("mergeMessage", gh)
 // const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
 // const splitUp=message.split(' ')

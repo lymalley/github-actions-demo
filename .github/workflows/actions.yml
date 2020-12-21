@@ -9,7 +9,7 @@ jobs:
         # with:
         #   who-to-greet: "World"
       - run: |
-          echo "Time: ${{ steps.hello.outputs.mergeMessage }}"
+          echo "${{ steps.hello.outputs.mergeMessage }}"
 
 # name: Actions Workflow
 
