@@ -9,7 +9,7 @@ inputs:
   github-object:
     description: "Github object"
     required: true
-    default: ${{}}
+    # default: ${{}}
 outputs:
   time:
     description: "The greeting time"
