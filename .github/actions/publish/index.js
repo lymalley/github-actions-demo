@@ -5,10 +5,12 @@ try {
 //throw( new Error('some error message'))
 // const gh=JSON.stringify(github)
 // core.setOutput("mergeMessage", gh)
-const context=core.getInput("github-object")
+const message=core.getInput("github-object")
+const splitUp=message.split(' ')
+const first=splitUp[0]
 //const message=context.event.commits[context.event.commits-1].message
 // if (context.event.commit)
-core.setOutput("mergeMessage", context)
+core.setOutput("mergeMessage", first)
 // const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
 // const splitUp=message.split(' ')
 // if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {
