@@ -1939,7 +1939,6 @@ const core=__webpack_require__(718)
 const github=__webpack_require__(104)
 try {
 const event=core.getInput("github-object")
-console.log("context", context)
   //  const context=JSON.stringify(github.context, null, '\t')
 
 console.log("Eve", event)
