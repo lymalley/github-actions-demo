@@ -1946,11 +1946,17 @@ try {
 const committer=JSON.stringify(headCommit.committer.username)
 // const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer.username)
     if (committer === '"web-flow"') {
-    core.setOutput("mergeMessage", "Successful merge")
+            //check name of pull request
+    const message= JSON.stringify(headCommit.message.toUpperCase())
+    if (message.includes("RELEASE") && message.includes("STUDIO")){
+    core.setOutput("mergeMessage", "Successful merge")}
+    else {
+        core.setFailed("Invalid pr naming")
+    }
     } else {
         core.setFailed("Not a pr merge")
     }
-    //check name of pull request
+
     console.log("head commit", JSON.stringify(headCommit, null, '\t'))
     console.log(JSON.stringify(github.context.payload, null, '\t'))
     } catch (error) {
