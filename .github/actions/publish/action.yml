@@ -1,15 +1,10 @@
 name: Ready to Publish
 # author: Lauren
 description: Requirements needed to publish repo
-inputs:
-  # who-to-greet:
-  #   description: "Who To Greet"
-  #   required: true
-  #   default: Ali
-  github-object:
-    description: "Github object merge message"
-    required: true
-    # default: ${{}}
+# inputs:
+#   github-object:
+#     description: "Github object merge message"
+#     required: true
 outputs:
   time:
     description: "The greeting time"
