@@ -22,6 +22,7 @@ jobs:
         id: merge
         with:
           github-object: ${{ toJson(github.event)}}
+          committer-username: ${{ toJson(github.event.commits[github.event.commits.length-1].committer.username)}}
         # github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
       - run: |
           echo "${{ steps.merge.outputs.mergeMessage }}"

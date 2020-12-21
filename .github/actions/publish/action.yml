@@ -5,6 +5,9 @@ inputs:
   github-object:
     description: "Github object merge message"
     required: true
+  committer-username:
+    description: "username of committer on event object"
+    required: true
 outputs:
   event:
     description: "Github workflow event"

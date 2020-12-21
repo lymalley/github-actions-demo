@@ -1939,12 +1939,11 @@ const core=__webpack_require__(718)
 const github=__webpack_require__(104)
 try {
 const event=core.getInput("github-object")
+const committerUsername=core.getInput("committer-username")
   //  const context=JSON.stringify(github.context, null, '\t')
 
-console.log("Eve", event)
-  const commit=event.commits
-    console.log("commits", commit)
-    core.setOutput("mergeMessage.", commit[commit.length-1])
+
+    core.setOutput("mergeMessage.", committerUsername)
     // const message=commit.message
     // console.log("msg", message)
     // console.log("committer", commit.committer)
