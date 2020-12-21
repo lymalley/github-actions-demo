@@ -5,13 +5,13 @@ on:
     branches:
       - master
       - STUDIO-439
-  pull_request:
-    branches:
-      - master
-    types:
-      - ready_for_review
-      - review_requested
-      - opened
+  # pull_request:
+  #   branches:
+  #     - master
+  #   types:
+  #     - ready_for_review
+  #     - review_requested
+  #     - opened
 
 jobs:
   checkForMerge:
@@ -20,9 +20,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/publish
         id: merge
-        with:
-          github-object: ${{ toJson(github.event)}}
-          committer-username: ${{ toJson(github.event.commits[github.event.commits.length-1])}}
+        # with:
+        #   github-object: ${{ toJson(github.event)}}
+        #   committer-username: ${{ toJson(github.event.commits[github.event.commits.length-1])}}
         # github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
       - run: |
           echo "${{ steps.merge.outputs.mergeMessage }}"
