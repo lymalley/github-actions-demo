@@ -4,10 +4,15 @@ try {
 const event=core.getInput("github-object")
 const committerUsername=core.getInput("committer-username")
   //  const context=JSON.stringify(github.context, null, '\t')
-const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer)
+const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer.username)
 console.log(committerUsername)
+console.log("here,", committer)
     // core.setOutput("mergeMessage", JSON.stringify(github.context.payload.commits, null, '\t'))
+    if (committer === "web-flow") {
     core.setOutput("mergeMessage", committer)
+    } else {
+        core.setFailed("Not a pr merge")
+    }
     // const message=commit.message
     // console.log("msg", message)
     // console.log("committer", commit.committer)
