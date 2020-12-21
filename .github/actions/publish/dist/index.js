@@ -1937,11 +1937,14 @@ exports.isPlainObject = isPlainObject;
 
 const core=__webpack_require__(718)
 const github=__webpack_require__(104)
+
+//command to update dist/index.js is
+//npx ncc build .github/actions/publish/index.js -o .github/actions/publish/dist
 try {
 //check for merge from pull request
 const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer.username)
     if (committer === '"web-flow"') {
-    core.setOutput("mergeMessage", github)
+    core.setOutput("mergeMessage", github.context.payload)
     } else {
         core.setFailed("Not a pr merge")
     }
