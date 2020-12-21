@@ -7,7 +7,7 @@ inputs:
   #   required: true
   #   default: Ali
   github-object:
-    description: "Github object"
+    description: "Github object merge message"
     required: true
     # default: ${{}}
 outputs:

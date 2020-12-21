@@ -1945,7 +1945,7 @@ try {
 const context=core.getInput("github-object")
 //const message=context.event.commits[context.event.commits-1].message
 // if (context.event.commit)
-core.setOutput("mergeMessage", JSON.stringify(context))
+core.setOutput("mergeMessage", context)
 // const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
 // const splitUp=message.split(' ')
 // if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {

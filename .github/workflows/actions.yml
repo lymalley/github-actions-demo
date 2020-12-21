@@ -1,17 +1,36 @@
-on: push
+name: Merge & Publish
+
+on:
+  push:
+    branches:
+      - master
+      - STUDIO-439
+  pull_request:
+    branches:
+      - master
+    types:
+      - ready_for_review
+      - review_requested
+      - opened
+
 jobs:
-  testing-action:
+  checkForMerge:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/publish
-        id: hello
+      - name: Github Event Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_MESSAGE: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
+        id: merge
         # with:
         #   who-to-greet: "World"
         with:
-          github-object: ${{ toJson(github)}}
+          # github-object: ${{ toJson(github)}}
+          github-object: "$GITHUB_MESSAGE"
       - run: |
-          echo "${{ steps.hello.outputs.mergeMessage }}"
+          echo "${{ steps.merge.outputs.mergeMessage }}"
 
 # name: Actions Workflow
 
