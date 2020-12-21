@@ -25,7 +25,7 @@ jobs:
         #   committer-username: ${{ toJson(github.event.commits[github.event.commits.length-1])}}
         # github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
       - run: |
-          echo "${{ steps.merge.outputs.mergeMessage }}"
+          echo "${{ toJson(steps.merge.outputs.mergeMessage) }}"
 
 # name: Actions Workflow
 
