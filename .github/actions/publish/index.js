@@ -28,7 +28,7 @@ core.setOutput("mergeMessage", message)
 const time= new Date()
 core.setOutput("time", time.toTimeString())
 
-console.log(JSON.stringify(github.context, null, '\t'))
+console.log(JSON.stringify(github.context.payload, null, '\t'))
 } catch (error) {
 core.setFailed(error.message)
 }
