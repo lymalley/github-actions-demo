@@ -1941,7 +1941,9 @@ try {
 const context=core.getInput("github-object")
 console.log("context", context)
   //  const context=JSON.stringify(github.context, null, '\t')
-    const commit=context.event.commits
+  const event=context.event
+console.log("Eve", event)
+  const commit=context.event.commits
     console.log("commits", commit)
     core.setOutput("mergeMessage.", commit[commit.length-1])
     // const message=commit.message
