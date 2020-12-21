@@ -6,7 +6,7 @@ try {
 // const gh=JSON.stringify(github)
 // core.setOutput("mergeMessage", gh)
 const context=core.getInput("github-object")
-const message=context.event.commit[context.event.commits-1].message
+const message=context.event.commits[context.event.commits-1].message
 // if (context.event.commit)
 core.setOutput("mergeMessage", message)
 // const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
