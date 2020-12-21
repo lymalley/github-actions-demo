@@ -1,13 +1,13 @@
 name: Ready to Publish
 # author: Lauren
 description: Requirements needed to publish repo
-inputs:
-  github-object:
-    description: "Github object merge message"
-    required: true
-  committer-username:
-    description: "username of committer on event object"
-    required: true
+# inputs:
+#   github-object:
+#     description: "Github object merge message"
+#     required: true
+#   committer-username:
+#     description: "username of committer on event object"
+#     required: true
 outputs:
   # event:
   #   description: "Github workflow event"
