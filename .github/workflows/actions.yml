@@ -1,18 +1,48 @@
-name: Actions Workflow
+name: Merge Check
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - STUDIO-439
+  pull_request:
+    branches:
+      - master
+    types:
+      - ready_for_review
+      - review_requested
+      - opened
 
 jobs:
-  run-github-actions:
+  checkForMerge:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
-        run: |
-          pwd
-          ls
-      - name: Simple JS Actions
-        uses: actions/hello-world-javascript-action@v1
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/publish
+        id: merge
+        # with:
+        #   who-to-greet: "World"
         with:
-          who-to-greet: John
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}"
+          # github-object: ${{ toJson(github)}}
+          github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
+      - run: |
+          echo "${{ steps.merge.outputs.mergeMessage }}"
+
+# name: Actions Workflow
+
+# on: [push]
+
+# jobs:
+#   run-github-actions:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: List Files
+#         run: |
+#           pwd
+#           ls
+#       - name: Simple JS Actions
+#         uses: actions/hello-world-javascript-action@v1
+#         with:
+#           who-to-greet: John
+#       - name: Log Greeting Time
+#         run: echo "${{ steps.greet.outputs.time }}"
