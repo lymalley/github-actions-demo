@@ -1946,7 +1946,8 @@ const message=core.getInput("github-object")
 const splitUp=message.split(' ')
 //const first=splitUp[0]
 //const message=context.event.commits[context.event.commits-1].message
-if (splitUp[0] === "testing") {
+console.log("split", splitUp)
+if (splitUp[0] == "testing") {
 core.setOutput("mergeMessage", message)
 } else {
     core.setFailed("Not valid merge")
