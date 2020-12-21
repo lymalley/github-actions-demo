@@ -9,7 +9,7 @@ jobs:
         # with:
         #   who-to-greet: "World"
       - run: |
-          echo "Time: ${{ steps.hello.outputs}}"
+          echo "Time: ${{ toJson(steps.hello.outputs)}}"
 
 # name: Actions Workflow
 
