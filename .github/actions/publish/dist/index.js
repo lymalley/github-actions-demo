@@ -1941,7 +1941,7 @@ const github=__webpack_require__(104)
 try {
 //throw( new Error('some error message'))
 const gh=JSON.stringify(github)
-core.setOutput("mergeMessage", gh.context)
+core.setOutput("mergeMessage", gh[0])
 // const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
 // const splitUp=message.split(' ')
 // if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {
