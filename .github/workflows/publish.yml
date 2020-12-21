@@ -24,10 +24,10 @@ jobs:
       - name: Dump Github Context Ev
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_MESSAGE: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
+          GITHUB_MESSAGE: ${{ toJson(github.event.commits[github.event.commits-1].message).split(' ')[0]}}
         # if: github.event.commits[github.event.commits-1].message.split(' ')[0] == 'Merge'
         run: |
-          echo "$GITHUB_MESSAGE.split(' ')"
+          echo "$GITHUB_MESSAGE"
 
 #   pull_request:
 #     # types: [synchronize]
