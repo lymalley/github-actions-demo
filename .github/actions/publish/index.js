@@ -3,13 +3,14 @@ const github=require("@actions/github")
 
 try {
 //throw( new Error('some error message'))
-const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
-const splitUp=message.split(' ')
-if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {
-    core.setOutput("mergeMessage", message)
-} else {
-    core.setFailed("Not valid merge")
-}
+core.setOutput("mergeMessage", JSON.stringify(github))
+// const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
+// const splitUp=message.split(' ')
+// if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {
+//     core.setOutput("mergeMessage", message)
+// } else {
+//     core.setFailed("Not valid merge")
+// }
 // const name=core.getInput("who-to-greet")
 // console.log(`Hello ${name}`)
 
