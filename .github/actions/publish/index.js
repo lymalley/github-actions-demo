@@ -25,10 +25,10 @@ core.setOutput("mergeMessage", message)
 // const name=core.getInput("who-to-greet")
 // console.log(`Hello ${name}`)
 
-const time= new Date()
-core.setOutput("time", time.toTimeString())
+// const time= new Date()
+// core.setOutput("time", time.toTimeString())
 
-console.log(JSON.stringify(github.context.payload.commits, null, '\t'))
+console.log(JSON.stringify(github.context.payload.commits[github.context.payload.commits-1], null, '\t'))
 } catch (error) {
 core.setFailed(error.message)
 }
