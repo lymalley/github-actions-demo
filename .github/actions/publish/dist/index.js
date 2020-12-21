@@ -1938,12 +1938,12 @@ exports.isPlainObject = isPlainObject;
 const core=__webpack_require__(718)
 const github=__webpack_require__(104)
 try {
-const context=core.getInput("github-object")
+const event=core.getInput("github-object")
 console.log("context", context)
   //  const context=JSON.stringify(github.context, null, '\t')
-  const event=context.ref
+
 console.log("Eve", event)
-  const commit=context.event.commits
+  const commit=event.commits
     console.log("commits", commit)
     core.setOutput("mergeMessage.", commit[commit.length-1])
     // const message=commit.message

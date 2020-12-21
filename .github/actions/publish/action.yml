@@ -6,8 +6,8 @@ inputs:
     description: "Github object merge message"
     required: true
 outputs:
-  time:
-    description: "The greeting time"
+  event:
+    description: "Github workflow event"
   mergeMessage:
     description: "Is a pull request merge"
   prName:
