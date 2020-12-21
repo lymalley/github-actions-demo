@@ -19,16 +19,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/publish
-      - name: Github Event Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_MESSAGE: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
         id: merge
         # with:
         #   who-to-greet: "World"
         with:
           # github-object: ${{ toJson(github)}}
-          github-object: "$GITHUB_MESSAGE"
+          github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
       - run: |
           echo "${{ steps.merge.outputs.mergeMessage }}"
 
