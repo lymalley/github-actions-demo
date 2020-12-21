@@ -1,4 +1,4 @@
-name: Merge & Publish
+name: Merge Check
 
 on:
   push:
