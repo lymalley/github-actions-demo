@@ -7,12 +7,12 @@ try {
 //check for merge from pull request
 const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer.username)
     if (committer === '"web-flow"') {
-    core.setOutput("mergeMessage", github.context.payload)
+    core.setOutput("mergeMessage", "Successful merge")
     } else {
         core.setFailed("Not a pr merge")
     }
     //check name of pull request
-   // console.log()
+    console.log(JSON.stringify(github.context.payload, null, '\t'))
     } catch (error) {
     core.setFailed(error.message)
     }
