@@ -20,7 +20,7 @@ jobs:
     name: Print event
     runs-on: ubuntu-latest
     steps:
-      - name: Dump Github Context
+      - name: Dump Github Context Ev
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
