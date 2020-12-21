@@ -11,6 +11,7 @@ console.log("committer", commit.committer)
 // console.log("context", context.payload.commits[context.payload.commits.length-1])
 const req=core.getInput("github-object")
 console.log("req", req)
+console.log("req committer", req.commits)
 // const message =JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1], null, '\t')
 const splitUp=message.split(' ')
 //const first=splitUp[0]
