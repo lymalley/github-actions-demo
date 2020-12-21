@@ -4,9 +4,10 @@ try {
 const event=core.getInput("github-object")
 const committerUsername=core.getInput("committer-username")
   //  const context=JSON.stringify(github.context, null, '\t')
-
+const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer)
 console.log(committerUsername)
-    core.setOutput("mergeMessage", JSON.stringify(github.context.payload.commits, null, '\t'))
+    // core.setOutput("mergeMessage", JSON.stringify(github.context.payload.commits, null, '\t'))
+    core.setOutput("mergeMessage", committer)
     // const message=commit.message
     // console.log("msg", message)
     // console.log("committer", commit.committer)
