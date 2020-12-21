@@ -2,12 +2,11 @@ const core=require("@actions/core")
 const github=require("@actions/github")
 try {
 const event=core.getInput("github-object")
+const committerUsername=core.getInput("committer-username")
   //  const context=JSON.stringify(github.context, null, '\t')
 
-console.log("Eve", event)
-  const commit=event.commits
-    console.log("commits", commit)
-    core.setOutput("mergeMessage.", commit[commit.length-1])
+console.log(committerUsername)
+    core.setOutput("mergeMessage", committerUsername)
     // const message=commit.message
     // console.log("msg", message)
     // console.log("committer", commit.committer)
