@@ -27,7 +27,7 @@ jobs:
           GITHUB_MESSAGE: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
         # if: github.event.commits[github.event.commits-1].message.split(' ')[0] == 'Merge'
         run: |
-          echo "$GITHUB_MESSAGE"
+          echo "$GITHUB_MESSAGE.split(' ')"
 
 #   pull_request:
 #     # types: [synchronize]
