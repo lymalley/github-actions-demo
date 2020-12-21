@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/publish
         id: merge
-        # with:
-        #   github-object: ${{ toJson(github)}}
+        with:
+          github-object: ${{ toJson(github)}}
         # github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
       - run: |
           echo "${{ steps.merge.outputs.mergeMessage }}"
