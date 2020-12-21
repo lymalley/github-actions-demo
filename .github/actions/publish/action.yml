@@ -9,12 +9,12 @@ inputs:
     description: "username of committer on event object"
     required: true
 outputs:
-  event:
-    description: "Github workflow event"
+  # event:
+  #   description: "Github workflow event"
   mergeMessage:
     description: "Is a pull request merge"
-  prName:
-    description: "Is named properly"
+  # prName:
+  #   description: "Is named properly"
 runs:
   using: "node12"
   main: "dist/index.js"

@@ -1942,8 +1942,8 @@ const event=core.getInput("github-object")
 const committerUsername=core.getInput("committer-username")
   //  const context=JSON.stringify(github.context, null, '\t')
 
-
-    core.setOutput("mergeMessage.", committerUsername)
+console.log(committerUsername)
+    core.setOutput("mergeMessage", committerUsername)
     // const message=commit.message
     // console.log("msg", message)
     // console.log("committer", commit.committer)
