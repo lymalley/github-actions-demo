@@ -8,6 +8,8 @@ jobs:
         id: hello
         # with:
         #   who-to-greet: "World"
+        with:
+          github-object: ${{ toJson(github)}}
       - run: |
           echo "${{ steps.hello.outputs.mergeMessage }}"
 
