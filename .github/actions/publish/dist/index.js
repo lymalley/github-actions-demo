@@ -1941,7 +1941,7 @@ try {
 const context=core.getInput("github-object")
 console.log("context", context)
   //  const context=JSON.stringify(github.context, null, '\t')
-  const event=context.event
+  const event=context.ref
 console.log("Eve", event)
   const commit=context.event.commits
     console.log("commits", commit)
