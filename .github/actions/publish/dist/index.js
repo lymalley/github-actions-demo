@@ -1941,14 +1941,17 @@ const github=__webpack_require__(104)
 //command to update dist/index.js is
 //npx ncc build .github/actions/publish/index.js -o .github/actions/publish/dist
 try {
+    const headCommit=github.context.payload.head_commit
 //check for merge from pull request
-const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer.username)
+const committer=JSON.stringify(headCommit.committer.username)
+// const committer=JSON.stringify(github.context.payload.commits[github.context.payload.commits.length-1].committer.username)
     if (committer === '"web-flow"') {
     core.setOutput("mergeMessage", "Successful merge")
     } else {
         core.setFailed("Not a pr merge")
     }
     //check name of pull request
+    console.log("head commit", JSON.stringify(headCommit, null, '\t'))
     console.log(JSON.stringify(github.context.payload, null, '\t'))
     } catch (error) {
     core.setFailed(error.message)
