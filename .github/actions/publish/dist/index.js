@@ -1948,7 +1948,7 @@ const splitUp=message.split(' ')
 //const first=splitUp[0]
 //const message=context.event.commits[context.event.commits-1].message
 
-if (splitUp[0] == '"testing') {
+if (splitUp[0] ==='testing') {
    // if (splitUp[0] == '"Merge' && splitUp[1] == "pull" && splitUp[2] == "request") {
 core.setOutput("mergeMessage", message)
 } else {
