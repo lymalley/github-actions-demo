@@ -1947,24 +1947,13 @@ const splitUp=message.split(' ')
 //const first=splitUp[0]
 //const message=context.event.commits[context.event.commits-1].message
 console.log("split", splitUp)
-if (splitUp[0] == "testing") {
+if (splitUp[0] == '"testing') {
 core.setOutput("mergeMessage", message)
 } else {
     core.setFailed("Not valid merge")
 }
-// const message=JSON.stringify(github.event.commits[github.event.commits-1].message)
-// const splitUp=message.split(' ')
-// if (splitUp[0] === "Merge" && splitUp[1] === "pull" && splitUp[2] === "request") {
-//     core.setOutput("mergeMessage", message)
-// } else {
-//     core.setFailed("Not valid merge")
-// }
-// const name=core.getInput("who-to-greet")
-// console.log(`Hello ${name}`)
 
-// const time= new Date()
-// core.setOutput("time", time.toTimeString())
-
+console.log("MESSAGE", splitUp)
 console.log(JSON.stringify(github.context.payload.commits[github.context.payload.commits-1], null, '\t'))
 } catch (error) {
 core.setFailed(error.message)
