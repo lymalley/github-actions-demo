@@ -5,7 +5,7 @@ try {
 //throw( new Error('some error message'))
 // const gh=JSON.stringify(github)
 // core.setOutput("mergeMessage", gh)
-const context=JSON.stringify(github.context.payload)
+const context=JSON.stringify(github.context)
 console.log("context", context)
 const message=core.getInput("github-object")
 //const message =JSON.stringify(github.context.payload.commits[github.context.payload.commits-1], null, '\t')
