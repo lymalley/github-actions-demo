@@ -29,6 +29,7 @@ jobs:
         # if: github.event.commits[github.event.commits-1].message.split(' ')[0] == 'Merge'
         run: |
           echo "$GITHUB_MESSAGE.split(' ')"
+          echo $Hello
 
 #   pull_request:
 #     # types: [synchronize]
