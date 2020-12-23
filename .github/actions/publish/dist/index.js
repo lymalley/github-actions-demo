@@ -1943,12 +1943,12 @@ const github=__webpack_require__(104)
 try {
     //throw new Error("Error")
     //this debug message will only appear if debug is enabled
-    core.debug('debug message')
+   // core.debug('debug message')
     //can also have a warning message that will appear in yellow
-    core.warning("Warning message")
+   // core.warning("Warning message")
     //and error message that will appear in red but will just gibe you the error
     //and not make the action fail
-    core.error("Error message")
+   // core.error("Error message")
     //core.secret puts anything inside to have an output of ***
    // core.setSecret(secret)
     //can also set setcret.  Whenever
@@ -1976,7 +1976,7 @@ const committer=JSON.stringify(headCommit.committer.username)
     core.endGroup()
     //can pass this variable in action for example by rrunning 
     //echo $Hello
-    core.exportVariable("Hello", "HELLO")
+  //  core.exportVariable("Hello", "HELLO")
     } catch (error) {
     core.setFailed(error.message)
     }
