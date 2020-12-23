@@ -22,18 +22,25 @@ jobs:
         id: merge
       - run: |
           echo "${{ steps.merge.outputs.mergeMessage }}"
-      - uses: ./.github/actions/issue
-        id: issue
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: Title
-          body: Body
-          assignees: |
-            put
-            users 
-            here
-      - run: |
-          echo ${{ steps.issue.outputs.issue }}
+      # - uses: ./.github/actions/issue
+      #   id: issue
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     title: Title
+      #     body: Body
+      #     assignees: |
+      #       put
+      #       users
+      #       here
+      # - run: |
+      #     echo ${{ steps.issue.outputs.issue }}
+  publish-release:
+    runs-on: ubuntu-latest
+    needs: ["checkForMerge"]
+    steps:
+      - name: Publish
+        run: |
+          echo "publish"
         # with:
         #   github-object: ${{ toJson(github.event)}}
         #   committer-username: ${{ toJson(github.event.commits[github.event.commits.length-1])}}
