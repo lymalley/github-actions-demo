@@ -20,12 +20,25 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/publish
         id: merge
+      - run: |
+          echo "${{ steps.merge.outputs.mergeMessage }}"
+      - uses: ./.github/actions/issue
+        id: issue
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Title
+          body: Body
+          assignees: |
+            put
+            users 
+            here
+      - run: |
+          echo ${{ steps.issue.outputs.issue }}
         # with:
         #   github-object: ${{ toJson(github.event)}}
         #   committer-username: ${{ toJson(github.event.commits[github.event.commits.length-1])}}
         # github-object: ${{ toJson(github.event.commits[github.event.commits-1].message)}}
-      - run: |
-          echo "${{ steps.merge.outputs.mergeMessage }}"
+
 
 # name: Actions Workflow
 

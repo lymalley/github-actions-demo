@@ -23,7 +23,8 @@ const committer=JSON.stringify(headCommit.committer.username)
             //check name of pull request
     const message= JSON.stringify(headCommit.message.toUpperCase())
     if (message.includes("RELEASE") && message.includes("STUDIO")){
-    core.setOutput("mergeMessage", "Successful merge")}
+  console.log("messGE", message)
+        core.setOutput("mergeMessage", "Successful merge")}
     else {
         core.setFailed("Invalid pr naming")
     }
