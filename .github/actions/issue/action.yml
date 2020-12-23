@@ -1,0 +1,22 @@
+name: Issue
+# author: Lauren
+description: Requirements needed to publish repo
+inputs:
+  token:
+    description: "Github token"
+    required: true
+  title:
+    description: "Issue title"
+    required: true
+  body:
+    description: "Issue Body"
+    required: false
+  assignees:
+    description: "Issue assignees"
+    required: false
+outputs:
+  issue: # id of output
+    description: "The issue object as a json string"
+runs:
+  using: "node12"
+  main: "dist/index.js"
